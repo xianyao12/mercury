@@ -53,34 +53,5 @@ public class GlobalExceptionHandler {
         return JsonResult.error(be.getCode(), be.getMessage());
     }
 
-    /**
-     * 处理其他异常
-     *
-     * @param exception: 异常信息
-     * @return cn.com.codetest.anduin.common.utils.web.JsonResult
-     * @author XianYao
-     * @date 2021/4/12 18:28
-     */
-    @ResponseBody
-    @ExceptionHandler(Exception.class)
-    public JsonResult errorHandler(Exception exception, HttpServletRequest request, HttpServletResponse response) {
-        cross(response);
-        LogUtil.getLogger().error("其他异常", exception);
-        return JsonResult.error("操作失败,请联系管理员");
-    }
-
-    /**
-     * 支持跨域
-     *
-     * @param response:
-     * @author XianYao
-     * @date 2021/8/25 10:58
-     */
-    private void cross(HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-        response.setHeader("Access-Control-Max-Age", "3600");
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type, x-requested-with, X-Custom-Header, Authorization");
-    }
 
 }

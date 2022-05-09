@@ -2,9 +2,7 @@ package com.mercury.utils.web;
 
 import com.github.pagehelper.PageHelper;
 import com.mercury.utils.SqlUtil;
-import org.mybatis.spring.SqlSessionTemplate;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -17,9 +15,6 @@ import java.util.Map;
  */
 
 public class BaseController {
-    @Resource
-    private SqlSessionTemplate st;
-
     /**
      * 设置请求分页数据
      *
@@ -51,13 +46,4 @@ public class BaseController {
         return JsonResult.ok(0, "查询成功", new com.github.pagehelper.PageInfo<>(list));
     }
 
-    /**
-     * 获取当前登录的user
-     *
-     * @author XianYao
-     * @date 2021/7/13 22:01
-     */
-    public Map<String, Object> getLoginUser(Object userId) {
-        return st.selectOne("main.getFullById", userId);
-    }
 }
