@@ -18,8 +18,6 @@ public class CommonTool {
         System.out.println(toHump("sys_user_admin"));
         System.out.println(toLine("sysUserAdmin"));
         System.out.println("parent_id".equalsIgnoreCase("parentId"));
-
-
     }*/
 
     /**

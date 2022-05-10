@@ -31,7 +31,6 @@ public class BaseController {
             Boolean reasonable = pageInfo.getReasonable();
             PageHelper.startPage(pageNum, pageSize, orderBy).setReasonable(reasonable);
         }
-
     }
 
     /**

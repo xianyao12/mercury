@@ -5,8 +5,6 @@ import com.mercury.utils.exception.BusinessException;
 
 import java.util.regex.Pattern;
 
-;
-
 /**
  * sql操作工具类
  *
