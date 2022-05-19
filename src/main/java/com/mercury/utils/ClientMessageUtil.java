@@ -95,7 +95,7 @@ public class ClientMessageUtil {
             return "Unknown";
         } else if (userAgentString.contains("Android")) {
             String[] str = userAgentString.split("[()]+");
-            str = str[1].split("[;]");
+            str = str[1].split(";");
             String[] res = str[str.length - 1].split("Build/");
             return res[0].trim();
         } else if (userAgentString.contains("iPhone")) {

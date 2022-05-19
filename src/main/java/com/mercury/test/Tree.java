@@ -153,7 +153,7 @@ public class Tree {
         return node;
     }
 
-    class TreeEntity {
+    static class TreeEntity {
         private String id;
         private String label;
         private String parentId;

@@ -72,6 +72,7 @@ public class JsonResult extends HashMap<String, Object> {
         return r;
     }
 
+
     public static JsonResult error(Integer code, Exception exc) {
         JsonResult r = new JsonResult();
         r.put("code", code);
@@ -98,7 +99,7 @@ public class JsonResult extends HashMap<String, Object> {
      */
     @Override
     public JsonResult put(String key, Object data) {
-        super.put(key, data);
+        super.put(key, data == null ? "" : data);
         return this;
     }
 

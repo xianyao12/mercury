@@ -14,12 +14,6 @@ public class CommonTool {
     private static final Pattern HUMP_PATTERN = Pattern.compile("_(\\w)");
     private static final Pattern LINE_PATTERN = Pattern.compile("[A-Z]");
 
-    /*public static void main(String[] args) {
-        System.out.println(toHump("sys_user_admin"));
-        System.out.println(toLine("sysUserAdmin"));
-        System.out.println("parent_id".equalsIgnoreCase("parentId"));
-    }*/
-
     /**
      * 下划线转驼峰
      *
