@@ -3,6 +3,7 @@ package com.mercury.controller;
 import cn.hutool.core.convert.Convert;
 import com.mercury.utils.web.BaseController;
 import com.mercury.utils.web.JsonResult;
+import org.jetbrains.annotations.NotNull;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -69,7 +70,7 @@ public class CommonController extends BaseController {
      * @date 2021/12/22 22:19
      */
     @PostMapping("/getData")
-    public JsonResult getData(@RequestBody Map<String, Object> param) {
+    public JsonResult getData(@RequestBody @NotNull Map<String, Object> param) {
         List<Object> objects = st.selectList(Convert.toStr(param.get("sqlId")), param.get("sqlParam"));
         return JsonResult.ok(objects);
     }
