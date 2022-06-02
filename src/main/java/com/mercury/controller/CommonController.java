@@ -54,11 +54,9 @@ public class CommonController extends BaseController {
     /**
      * 获取数据
      *
-     * @param param: 参数
-     *               {
-     *               sqlId:sqlId,
-     *               sqlParam:{sql参数}
-     *               }
+     * @param param{ sqlId: sqlId,
+     *               sqlParam: {sql参数}
+     *               }: 参数
      * @return cn.com.venus.system.utils.web.JsonResult
      * @author XianYao
      * @date 2021/12/22 22:35
