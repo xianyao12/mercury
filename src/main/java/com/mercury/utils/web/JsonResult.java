@@ -1,5 +1,7 @@
 package com.mercury.utils.web;
 
+import com.mercury.utils.Constants;
+
 import java.util.HashMap;
 
 /**
@@ -12,25 +14,20 @@ import java.util.HashMap;
 public class JsonResult extends HashMap<String, Object> {
     private static final long serialVersionUID = 1L;
 
-    private final static int SUCCESS_CODE = 0;
-    private final static String SUCCESS_MSG = "请求成功";
-    private final static int ERROR_CODE = 1;
-    private final static String ERROR_MSG = "请求失败";
-
     public JsonResult() {
     }
 
     public static JsonResult ok() {
         JsonResult r = new JsonResult();
-        r.put("code", SUCCESS_CODE);
-        r.put("msg", SUCCESS_MSG);
+        r.put("code", Constants.RESULT_OK_CODE);
+        r.put("msg", Constants.RESULT_OK_MSG);
         return r;
     }
 
     public static JsonResult ok(Object data) {
         JsonResult r = new JsonResult();
-        r.put("code", SUCCESS_CODE);
-        r.put("msg", SUCCESS_MSG);
+        r.put("code", Constants.RESULT_OK_CODE);
+        r.put("msg", Constants.RESULT_OK_MSG);
         r.put("data", data);
         return r;
     }
@@ -52,15 +49,15 @@ public class JsonResult extends HashMap<String, Object> {
 
     public static JsonResult error() {
         JsonResult r = new JsonResult();
-        r.put("code", ERROR_CODE);
-        r.put("msg", ERROR_MSG);
+        r.put("code", Constants.RESULT_ERROR_CODE);
+        r.put("msg", Constants.RESULT_ERROR_MSG);
         return r;
     }
 
     public static JsonResult error(Object data) {
         JsonResult r = new JsonResult();
-        r.put("code", ERROR_CODE);
-        r.put("msg", ERROR_MSG);
+        r.put("code", Constants.RESULT_ERROR_CODE);
+        r.put("msg", Constants.RESULT_ERROR_MSG);
         r.put("data", data);
         return r;
     }
@@ -71,7 +68,6 @@ public class JsonResult extends HashMap<String, Object> {
         r.put("msg", msg);
         return r;
     }
-
 
     public static JsonResult error(Integer code, Exception exc) {
         JsonResult r = new JsonResult();

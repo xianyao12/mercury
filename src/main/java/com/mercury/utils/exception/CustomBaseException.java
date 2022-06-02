@@ -7,18 +7,18 @@ package com.mercury.utils.exception;
  * @version V1.0
  * @date 2021/4/1 11:55
  */
-public abstract class BaseIException extends RuntimeException {
+public abstract class CustomBaseException extends RuntimeException {
     private static final long serialVersionUID = -1582874427218948396L;
     private Integer code;
 
-    public BaseIException() {
+    public CustomBaseException() {
     }
 
-    public BaseIException(String message) {
+    public CustomBaseException(String message) {
         super(message);
     }
 
-    public BaseIException(Integer code, String message) {
+    public CustomBaseException(Integer code, String message) {
         super(message);
         this.code = code;
     }

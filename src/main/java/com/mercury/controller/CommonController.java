@@ -52,22 +52,16 @@ public class CommonController extends BaseController {
     }
 
     /**
-     * 获取表格数据
+     * 获取数据
      *
-     * @param param: 分页数据
+     * @param param: 参数
      *               {
-     *               pageNum:当前页,
-     *               <p>
-     *               pageSize:每页的数量,
-     *               orderByColumn:排序列,
-     *               isAsc:排序的方向,
-     *               reasonable:分页参数合理化,
      *               sqlId:sqlId,
      *               sqlParam:{sql参数}
      *               }
      * @return cn.com.venus.system.utils.web.JsonResult
      * @author XianYao
-     * @date 2021/12/22 22:19
+     * @date 2021/12/22 22:35
      */
     @PostMapping("/getData")
     public JsonResult getData(@RequestBody @NotNull Map<String, Object> param) {

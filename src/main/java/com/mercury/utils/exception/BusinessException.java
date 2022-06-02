@@ -7,7 +7,7 @@ package com.mercury.utils.exception;
  * @version V1.0
  * @date 2021/4/1 11:55
  */
-public class BusinessException extends BaseIException {
+public class BusinessException extends CustomBaseException {
     private static final long serialVersionUID = 5450935008012318697L;
 
     public BusinessException() {

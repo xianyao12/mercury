@@ -1,6 +1,7 @@
 package com.mercury.utils.web;
 
 import com.github.pagehelper.PageHelper;
+import com.mercury.utils.Constants;
 import com.mercury.utils.SqlUtil;
 
 import java.util.List;
@@ -42,7 +43,7 @@ public class BaseController {
      * @date 2021/12/22 21:40
      */
     protected JsonResult getDataTable(List<?> list) {
-        return JsonResult.ok(0, "查询成功", new com.github.pagehelper.PageInfo<>(list));
+        return JsonResult.ok(Constants.RESULT_OK_CODE, Constants.RESULT_OK_MSG, new com.github.pagehelper.PageInfo<>(list));
     }
 
 }
