@@ -3,6 +3,8 @@ package com.mercury.utils.web;
 import cn.hutool.core.util.StrUtil;
 import com.mercury.utils.CommonTool;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * 分页数据
  *
@@ -14,11 +16,13 @@ public class PageInfo {
     /**
      * 当前记录起始索引
      */
+    @NotNull(message = "页码不能为空")
     private Integer pageNum;
 
     /**
      * 每页显示记录数
      */
+    @NotNull(message = "每页显示记录数不能为空")
     private Integer pageSize;
 
     /**

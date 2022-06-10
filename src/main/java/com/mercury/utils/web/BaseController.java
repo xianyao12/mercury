@@ -19,7 +19,7 @@ public class BaseController {
     /**
      * 设置请求分页数据
      *
-     * @param param: 分页参数
+     * @param param : 分页参数, 参考 - {@link com.mercury.utils.web.PageInfo}
      * @author XianYao
      * @date 2021/12/22 21:39
      */
@@ -27,11 +27,11 @@ public class BaseController {
         PageInfo pageInfo = TableSupport.getPageInfo(param);
         Integer pageNum = pageInfo.getPageNum();
         Integer pageSize = pageInfo.getPageSize();
-        if (pageNum != null && pageSize != null) {
-            String orderBy = SqlUtil.escapeOrderBySql(pageInfo.getOrderBy());
-            Boolean reasonable = pageInfo.getReasonable();
-            PageHelper.startPage(pageNum, pageSize, orderBy).setReasonable(reasonable);
-        }
+
+        String orderBy = SqlUtil.escapeOrderBySql(pageInfo.getOrderBy());
+        Boolean reasonable = pageInfo.getReasonable();
+        PageHelper.startPage(pageNum, pageSize, orderBy).setReasonable(reasonable);
+
     }
 
     /**

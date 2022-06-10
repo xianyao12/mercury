@@ -1,7 +1,6 @@
 package com.mercury.utils;
 
 import cn.hutool.core.util.StrUtil;
-import com.mercury.utils.exception.BusinessException;
 
 import java.util.regex.Pattern;
 
@@ -36,7 +35,7 @@ public class SqlUtil {
      */
     public static String escapeOrderBySql(String value) {
         if (!StrUtil.isEmpty(value) && isValidOrderBySql(value)) {
-            throw new BusinessException("参数存在SQL注入漏洞，不能进行查询");
+            throw new IllegalArgumentException("参数存在SQL注入漏洞，不能进行查询");
         }
         return value;
     }
