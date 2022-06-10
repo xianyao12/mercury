@@ -1,8 +1,9 @@
-package com.mercury.controller;
+package com.galaxy.mercury.controller;
 
 import cn.hutool.core.convert.Convert;
-import com.mercury.utils.web.BaseController;
-import com.mercury.utils.web.JsonResult;
+import com.alibaba.fastjson2.JSONObject;
+import com.galaxy.mercury.utils.web.BaseController;
+import com.galaxy.mercury.utils.web.JsonResult;
 import org.jetbrains.annotations.NotNull;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,7 +46,7 @@ public class CommonController extends BaseController {
      * @date 2021/12/22 22:19
      */
     @PostMapping("/getGridData")
-    public JsonResult getGridData(@RequestBody Map<String, Object> param) {
+    public JsonResult getGridData(@RequestBody JSONObject param) {
         startPage(param);
         List<Object> objects = st.selectList(Convert.toStr(param.get("sqlId")), param.get("sqlParam"));
         return getDataTable(objects);

@@ -1,6 +1,8 @@
-package com.mercury.utils.web;
+package com.galaxy.mercury.utils.web;
 
 import cn.hutool.core.convert.Convert;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -91,9 +93,8 @@ public class ServletUtils {
      *
      * @param response 渲染对象
      * @param string   待渲染的字符串
-     * @return null
      */
-    public static String renderString(HttpServletResponse response, String string) {
+    public static void renderString(@NotNull HttpServletResponse response, String string) {
         try {
             response.setStatus(200);
             response.setContentType("application/json");
@@ -102,7 +103,6 @@ public class ServletUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
     }
 
     /**
@@ -110,7 +110,7 @@ public class ServletUtils {
      *
      * @param request 请求
      */
-    public static boolean isAjaxRequest(HttpServletRequest request) {
+    public static boolean isAjaxRequest(@NotNull HttpServletRequest request) {
         String accept = request.getHeader("accept");
         if (accept != null && accept.contains("application/json")) {
             return true;
@@ -151,7 +151,8 @@ public class ServletUtils {
     /**
      * 去空格
      */
-    public static String trim(String str) {
+    @Contract(pure = true)
+    public static @NotNull String trim(String str) {
         return (str == null ? "" : str.trim());
     }
 }

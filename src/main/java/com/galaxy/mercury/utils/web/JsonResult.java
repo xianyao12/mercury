@@ -1,6 +1,6 @@
-package com.mercury.utils.web;
+package com.galaxy.mercury.utils.web;
 
-import com.mercury.utils.Constants;
+import com.galaxy.mercury.utils.Constants;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package com.mercury.utils;
+package com.galaxy.mercury.utils;
 
 import cn.hutool.core.util.StrUtil;
 

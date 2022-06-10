@@ -1,8 +1,8 @@
-package com.mercury.utils.web;
+package com.galaxy.mercury.utils.web;
 
+import com.galaxy.mercury.utils.Constants;
+import com.galaxy.mercury.utils.SqlUtil;
 import com.github.pagehelper.PageHelper;
-import com.mercury.utils.Constants;
-import com.mercury.utils.SqlUtil;
 
 import java.util.List;
 import java.util.Map;
@@ -19,7 +19,7 @@ public class BaseController {
     /**
      * 设置请求分页数据
      *
-     * @param param : 分页参数, 参考 - {@link com.mercury.utils.web.PageInfo}
+     * @param param : 分页参数, 参考 - {@link PageInfo}
      * @author XianYao
      * @date 2021/12/22 21:39
      */

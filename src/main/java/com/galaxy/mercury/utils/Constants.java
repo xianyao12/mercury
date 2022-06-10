@@ -1,4 +1,4 @@
-package com.mercury.utils;
+package com.galaxy.mercury.utils;
 
 /**
  * 系统常量

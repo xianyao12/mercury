@@ -1,4 +1,4 @@
-package com.mercury.utils.exception;
+package com.galaxy.mercury.utils.exception;
 
 /**
  * 自定义异常基类
@@ -7,18 +7,18 @@ package com.mercury.utils.exception;
  * @version V1.0
  * @date 2021/4/1 11:55
  */
-public abstract class CustomBaseException extends RuntimeException {
+public abstract class BaseCustomException extends RuntimeException {
     private static final long serialVersionUID = -1582874427218948396L;
     private Integer code;
 
-    public CustomBaseException() {
+    public BaseCustomException() {
     }
 
-    public CustomBaseException(String message) {
+    public BaseCustomException(String message) {
         super(message);
     }
 
-    public CustomBaseException(Integer code, String message) {
+    public BaseCustomException(Integer code, String message) {
         super(message);
         this.code = code;
     }

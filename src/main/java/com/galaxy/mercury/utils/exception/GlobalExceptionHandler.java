@@ -1,7 +1,7 @@
-package com.mercury.utils.exception;
+package com.galaxy.mercury.utils.exception;
 
-import com.mercury.utils.LogUtil;
-import com.mercury.utils.web.JsonResult;
+import com.galaxy.mercury.utils.LogUtil;
+import com.galaxy.mercury.utils.web.JsonResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -44,8 +44,8 @@ public class GlobalExceptionHandler {
      * @date 2021/4/12 18:28
      */
     @ResponseBody
-    @ExceptionHandler(BusinessException.class)
-    public JsonResult businessExceptionHandler(BusinessException be, HttpServletRequest request, HttpServletResponse response) {
+    @ExceptionHandler(BusinessCustomException.class)
+    public JsonResult businessExceptionHandler(BusinessCustomException be, HttpServletRequest request, HttpServletResponse response) {
         LogUtil.getLogger().error("业务异常", be);
         return JsonResult.error(be.getCode(), be.getMessage());
     }

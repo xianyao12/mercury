@@ -1,4 +1,4 @@
-package com.mercury.utils.exception;
+package com.galaxy.mercury.utils.exception;
 
 /**
  * 业务异常
@@ -7,18 +7,18 @@ package com.mercury.utils.exception;
  * @version V1.0
  * @date 2021/4/1 11:55
  */
-public class BusinessException extends CustomBaseException {
+public class BusinessCustomException extends BaseCustomException {
     private static final long serialVersionUID = 5450935008012318697L;
 
-    public BusinessException() {
+    public BusinessCustomException() {
         super();
     }
 
-    public BusinessException(String message) {
+    public BusinessCustomException(String message) {
         super(message);
     }
 
-    public BusinessException(Integer code, String message) {
+    public BusinessCustomException(Integer code, String message) {
         super(code, message);
     }
 
