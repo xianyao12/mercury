@@ -1,7 +1,7 @@
 package com.galaxy.mercury.utils.web;
 
 import cn.hutool.core.util.StrUtil;
-import com.galaxy.mercury.utils.CommonTool;
+import com.galaxy.mercury.utils.other.CommonTool;
 
 import javax.validation.constraints.NotNull;
 

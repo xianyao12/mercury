@@ -1,4 +1,4 @@
-package com.galaxy.mercury.utils;
+package com.galaxy.mercury.utils.other;
 
 /**
  * Quartz工具类

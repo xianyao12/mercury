@@ -1,4 +1,4 @@
-package com.galaxy.mercury.utils;
+package com.galaxy.mercury.utils.other;
 
 import eu.bitwalker.useragentutils.UserAgent;
 

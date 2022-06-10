@@ -42,7 +42,7 @@ public class TableSupport {
      * 封装分页对象
      *
      * @param param: 分页数据
-     * @return cn.com.venus.system.utils.web.PageInfo
+     * @return com.galaxy.mercury.utils.web.PageInfo
      * @author XianYao
      * @date 2021/12/22 21:41
      */

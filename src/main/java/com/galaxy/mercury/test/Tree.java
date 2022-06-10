@@ -2,7 +2,7 @@ package com.galaxy.mercury.test;
 
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
-import com.galaxy.mercury.utils.CommonTool;
+import com.galaxy.mercury.utils.other.CommonTool;
 import org.springframework.util.ObjectUtils;
 
 import java.util.HashMap;

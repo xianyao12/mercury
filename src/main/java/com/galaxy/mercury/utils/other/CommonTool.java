@@ -1,4 +1,4 @@
-package com.galaxy.mercury.utils;
+package com.galaxy.mercury.utils.other;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

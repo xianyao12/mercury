@@ -1,4 +1,4 @@
-package com.galaxy.mercury.utils;
+package com.galaxy.mercury.utils.other;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

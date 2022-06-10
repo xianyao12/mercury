@@ -1,7 +1,7 @@
 package com.galaxy.mercury.utils.web;
 
 import com.galaxy.mercury.utils.Constants;
-import com.galaxy.mercury.utils.SqlUtil;
+import com.galaxy.mercury.utils.other.SqlUtil;
 import com.github.pagehelper.PageHelper;
 
 import java.util.List;
@@ -38,7 +38,7 @@ public class BaseController {
      * 响应请求分页数据
      *
      * @param list: 分页数据
-     * @return cn.com.venus.system.utils.web.JsonResult
+     * @return com.galaxy.mercury.utils.web.JsonResult
      * @author XianYao
      * @date 2021/12/22 21:40
      */

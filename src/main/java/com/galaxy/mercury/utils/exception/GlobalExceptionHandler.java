@@ -1,6 +1,6 @@
 package com.galaxy.mercury.utils.exception;
 
-import com.galaxy.mercury.utils.LogUtil;
+import com.galaxy.mercury.utils.other.LogUtil;
 import com.galaxy.mercury.utils.web.JsonResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

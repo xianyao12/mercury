@@ -31,8 +31,7 @@ public class CommonController extends BaseController {
     /**
      * 获取表格数据
      *
-     * @param param: 分页数据
-     *               {
+     * @param param: 分页数据,{
      *               pageNum:当前页,
      *               pageSize:每页的数量,
      *               orderByColumn:排序列,
@@ -41,7 +40,7 @@ public class CommonController extends BaseController {
      *               sqlId:sqlId,
      *               sqlParam:{sql参数}
      *               }
-     * @return com.mercury.utils.web.JsonResult
+     * @return com.galaxy.mercury.utils.web.JsonResult
      * @author XianYao
      * @date 2021/12/22 22:19
      */
@@ -55,10 +54,10 @@ public class CommonController extends BaseController {
     /**
      * 获取数据
      *
-     * @param param{ sqlId: sqlId,
+     * @param param: 参数,{ sqlId: sqlId,
      *               sqlParam: {sql参数}
-     *               }: 参数
-     * @return cn.com.venus.system.utils.web.JsonResult
+     *               }
+     * @return com.galaxy.mercury.utils.web.JsonResult
      * @author XianYao
      * @date 2021/12/22 22:35
      */
