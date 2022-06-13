@@ -70,7 +70,7 @@ public class JsonResult extends HashMap<String, Object> {
         return r;
     }
 
-    public static @NotNull JsonResult error(Integer code, Exception exc) {
+    public static @NotNull JsonResult error(Integer code, @NotNull Exception exc) {
         JsonResult r = new JsonResult();
         r.put("code", code);
         r.put("msg", exc.getMessage());
