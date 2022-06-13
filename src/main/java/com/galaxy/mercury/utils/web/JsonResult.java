@@ -1,6 +1,7 @@
 package com.galaxy.mercury.utils.web;
 
 import com.galaxy.mercury.utils.Constants;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
@@ -17,14 +18,14 @@ public class JsonResult extends HashMap<String, Object> {
     public JsonResult() {
     }
 
-    public static JsonResult ok() {
+    public static @NotNull JsonResult ok() {
         JsonResult r = new JsonResult();
         r.put("code", Constants.RESULT_OK_CODE);
         r.put("msg", Constants.RESULT_OK_MSG);
         return r;
     }
 
-    public static JsonResult ok(Object data) {
+    public static @NotNull JsonResult ok(Object data) {
         JsonResult r = new JsonResult();
         r.put("code", Constants.RESULT_OK_CODE);
         r.put("msg", Constants.RESULT_OK_MSG);
@@ -32,14 +33,14 @@ public class JsonResult extends HashMap<String, Object> {
         return r;
     }
 
-    public static JsonResult ok(Integer code, String msg) {
+    public static @NotNull JsonResult ok(Integer code, String msg) {
         JsonResult r = new JsonResult();
         r.put("code", code);
         r.put("msg", msg);
         return r;
     }
 
-    public static JsonResult ok(Integer code, String msg, Object data) {
+    public static @NotNull JsonResult ok(Integer code, String msg, Object data) {
         JsonResult r = new JsonResult();
         r.put("code", code);
         r.put("msg", msg);
@@ -47,14 +48,14 @@ public class JsonResult extends HashMap<String, Object> {
         return r;
     }
 
-    public static JsonResult error() {
+    public static @NotNull JsonResult error() {
         JsonResult r = new JsonResult();
         r.put("code", Constants.RESULT_ERROR_CODE);
         r.put("msg", Constants.RESULT_ERROR_MSG);
         return r;
     }
 
-    public static JsonResult error(Object data) {
+    public static @NotNull JsonResult error(Object data) {
         JsonResult r = new JsonResult();
         r.put("code", Constants.RESULT_ERROR_CODE);
         r.put("msg", Constants.RESULT_ERROR_MSG);
@@ -62,21 +63,21 @@ public class JsonResult extends HashMap<String, Object> {
         return r;
     }
 
-    public static JsonResult error(Integer code, String msg) {
+    public static @NotNull JsonResult error(Integer code, String msg) {
         JsonResult r = new JsonResult();
         r.put("code", code);
         r.put("msg", msg);
         return r;
     }
 
-    public static JsonResult error(Integer code, Exception exc) {
+    public static @NotNull JsonResult error(Integer code, Exception exc) {
         JsonResult r = new JsonResult();
         r.put("code", code);
         r.put("msg", exc.getMessage());
         return r;
     }
 
-    public static JsonResult error(Integer code, String msg, Object data) {
+    public static @NotNull JsonResult error(Integer code, String msg, Object data) {
         JsonResult r = new JsonResult();
         r.put("code", code);
         r.put("msg", msg);
