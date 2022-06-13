@@ -125,4 +125,5 @@ public class JsonResult extends HashMap<String, Object> {
     public JsonResult setData(Object object) {
         return put("data", object);
     }
+
 }
