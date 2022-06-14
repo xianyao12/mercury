@@ -1,4 +1,4 @@
-package com.galaxy.mercury.utils.exception;
+package com.galaxy.mercury.common.exception;
 
 /**
  * 业务异常

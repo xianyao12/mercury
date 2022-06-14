@@ -2,8 +2,8 @@ package com.galaxy.mercury.controller;
 
 import cn.hutool.core.convert.Convert;
 import com.alibaba.fastjson2.JSONObject;
-import com.galaxy.mercury.utils.web.BaseController;
-import com.galaxy.mercury.utils.web.JsonResult;
+import com.galaxy.mercury.common.web.BaseController;
+import com.galaxy.mercury.common.web.JsonResult;
 import org.jetbrains.annotations.NotNull;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,7 +40,7 @@ public class CommonController extends BaseController {
      *               sqlId:sqlId,
      *               sqlParam:{sql参数}
      *               }
-     * @return com.galaxy.mercury.utils.web.JsonResult
+     * @return com.galaxy.mercury.common.web.JsonResult
      * @author XianYao
      * @date 2021/12/22 22:19
      */
@@ -57,7 +57,7 @@ public class CommonController extends BaseController {
      * @param param: 参数,{ sqlId: sqlId,
      *               sqlParam: {sql参数}
      *               }
-     * @return com.galaxy.mercury.utils.web.JsonResult
+     * @return com.galaxy.mercury.common.web.JsonResult
      * @author XianYao
      * @date 2021/12/22 22:35
      */

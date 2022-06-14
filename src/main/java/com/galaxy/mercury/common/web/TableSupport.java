@@ -1,4 +1,4 @@
-package com.galaxy.mercury.utils.web;
+package com.galaxy.mercury.common.web;
 
 import cn.hutool.core.convert.Convert;
 import org.jetbrains.annotations.NotNull;
@@ -42,7 +42,7 @@ public class TableSupport {
      * 封装分页对象
      *
      * @param param: 分页数据
-     * @return com.galaxy.mercury.utils.web.PageInfo
+     * @return com.galaxy.mercury.common.web.PageInfo
      * @author XianYao
      * @date 2021/12/22 21:41
      */

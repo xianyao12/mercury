@@ -1,4 +1,4 @@
-package com.galaxy.mercury.utils.other;
+package com.galaxy.mercury.utils;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;

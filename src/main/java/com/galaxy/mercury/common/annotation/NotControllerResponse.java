@@ -1,4 +1,4 @@
-package com.galaxy.mercury.utils.annotation;
+package com.galaxy.mercury.common.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 不进行分装注解
+ * 拒绝请求响应封装
  *
  * @author XianYao
  * @version V1.0.0
@@ -14,5 +14,5 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface NotControllerResponseAdvice {
+public @interface NotControllerResponse {
 }

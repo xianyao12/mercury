@@ -1,4 +1,4 @@
-package com.galaxy.mercury.utils.web;
+package com.galaxy.mercury.utils;
 
 import cn.hutool.core.convert.Convert;
 import org.jetbrains.annotations.Contract;
@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 /**
  * 客户端工具类
@@ -81,6 +83,39 @@ public class ServletUtils {
      */
     public static HttpSession getSession() {
         return getRequest().getSession();
+    }
+
+    /**
+     * Describe: Request 客户端地址
+     *
+     * @return {@link String}
+     */
+    public static String getIpAddress() {
+        HttpServletRequest request = getRequest();
+        String ipAddress = request.getHeader("x-forwarded-for");
+        if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
+            ipAddress = request.getHeader("Proxy-Client-IP");
+        }
+        if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
+            ipAddress = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
+            ipAddress = request.getRemoteAddr();
+            if ("127.0.0.1".equals(ipAddress) || "0:0:0:0:0:0:0:1".equals(ipAddress)) {
+                // 根据网卡取本机配置的IP
+                try {
+                    ipAddress = InetAddress.getLocalHost().getHostAddress();
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        if (ipAddress != null && ipAddress.length() > 15) {
+            if (ipAddress.indexOf(",") > 0) {
+                ipAddress = ipAddress.substring(0, ipAddress.indexOf(","));
+            }
+        }
+        return ipAddress;
     }
 
     public static ServletRequestAttributes getRequestAttributes() {

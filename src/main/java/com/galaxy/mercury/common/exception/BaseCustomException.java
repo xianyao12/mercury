@@ -1,4 +1,4 @@
-package com.galaxy.mercury.utils.exception;
+package com.galaxy.mercury.common.exception;
 
 /**
  * 自定义异常基类
