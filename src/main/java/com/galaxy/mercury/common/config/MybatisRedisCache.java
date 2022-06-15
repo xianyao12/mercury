@@ -124,7 +124,7 @@ public class MybatisRedisCache implements Cache {
         return this.readWriteLock;
     }
 
-    private @NotNull String getCacheKey(Object key) {
+    private @NotNull String getCacheKey(@NotNull Object key) {
         return this.id + ":" + key.toString();
     }
 }

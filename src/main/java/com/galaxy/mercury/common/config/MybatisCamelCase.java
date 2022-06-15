@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  * @date 2021/12/23 18:47
  */
 public class MybatisCamelCase extends MapWrapper {
-    private static final Pattern linePattern = Pattern.compile("_(\\w)");
+    private static final Pattern LINE_PATTERN = Pattern.compile("_(\\w)");
 
     public MybatisCamelCase(MetaObject metaObject, Map<String, Object> map) {
         super(metaObject, map);
@@ -26,7 +26,7 @@ public class MybatisCamelCase extends MapWrapper {
 
     public static String toCamelCase(String str) {
         str = str.toLowerCase();
-        Matcher matcher = linePattern.matcher(str);
+        Matcher matcher = LINE_PATTERN.matcher(str);
         StringBuffer sb = new StringBuffer();
         while (matcher.find()) {
             matcher.appendReplacement(sb, matcher.group(1).toUpperCase());

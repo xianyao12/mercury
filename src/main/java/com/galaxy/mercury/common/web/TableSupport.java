@@ -46,7 +46,7 @@ public class TableSupport {
      * @author XianYao
      * @date 2021/12/22 21:41
      */
-    public static PageInfo getPageInfo(@NotNull Map<String, Object> param) {
+    public static @NotNull PageInfo getPageInfo(@NotNull Map<String, Object> param) {
         PageInfo pageInfo = new PageInfo();
         pageInfo.setPageNum(Convert.toInt(param.get(PAGE_NUM), 0));
         pageInfo.setPageSize(Convert.toInt(param.get(PAGE_SIZE), 10));

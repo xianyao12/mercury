@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * TODO
+ * 公共方法
  *
  * @author XianYao
  * @version V1.0.0
