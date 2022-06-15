@@ -1,5 +1,7 @@
 package com.galaxy.mercury.utils;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,7 +24,7 @@ public class CommonTool {
      * @author XianYao
      * @date 2022/5/9 12:12
      */
-    public static String toHump(String str) {
+    public static @NotNull String toHump(String str) {
         StringBuffer stringBuffer = new StringBuffer();
         Matcher matcher = HUMP_PATTERN.matcher(str);
         while (matcher.find()) {
@@ -41,7 +43,7 @@ public class CommonTool {
      * @author XianYao
      * @date 2022/5/9 12:21
      */
-    public static String toLine(String str) {
+    public static @NotNull String toLine(String str) {
         StringBuffer stringBuffer = new StringBuffer();
         Matcher matcher = LINE_PATTERN.matcher(str);
         while (matcher.find()) {

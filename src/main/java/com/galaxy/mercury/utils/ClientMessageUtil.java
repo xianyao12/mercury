@@ -1,6 +1,7 @@
 package com.galaxy.mercury.utils;
 
 import eu.bitwalker.useragentutils.UserAgent;
+import org.jetbrains.annotations.NotNull;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
@@ -18,7 +19,7 @@ public class ClientMessageUtil {
     private final String userAgentString;
     private final HttpServletRequest userRequest;
 
-    public ClientMessageUtil(HttpServletRequest request) {
+    public ClientMessageUtil(@NotNull HttpServletRequest request) {
         this.userRequest = request;
         this.userAgentString = request.getHeader("User-Agent");
         this.userAgent = UserAgent.parseUserAgentString(userAgentString);

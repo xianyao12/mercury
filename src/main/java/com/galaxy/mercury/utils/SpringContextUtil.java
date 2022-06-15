@@ -22,7 +22,7 @@ public class SpringContextUtil implements ApplicationContextAware {
      * @author chenjun
      * @date 2018-3-7
      */
-    public static Object getBean(String name) throws BeansException {
+    public static @NotNull Object getBean(String name) throws BeansException {
         return ctx.getBean(name);
     }
 
@@ -36,7 +36,7 @@ public class SpringContextUtil implements ApplicationContextAware {
      * @author chenjun
      * @date 2018-3-7
      */
-    public static <T> T getBean(String name, Class<T> cls) throws BeansException {
+    public static <T> @NotNull T getBean(String name, Class<T> cls) throws BeansException {
         return ctx.getBean(name, cls);
     }
 
@@ -50,7 +50,7 @@ public class SpringContextUtil implements ApplicationContextAware {
      * @author chenjun
      * @date 2018-3-7
      */
-    public static Object getBean(String name, Object obj) throws BeansException {
+    public static @NotNull Object getBean(String name, Object obj) throws BeansException {
         return ctx.getBean(name, obj);
     }
 
@@ -63,7 +63,7 @@ public class SpringContextUtil implements ApplicationContextAware {
      * @author chenjun
      * @date 2018-3-7
      */
-    public static <T> T getBean(Class<T> cls) throws BeansException {
+    public static <T> @NotNull T getBean(Class<T> cls) throws BeansException {
         return ctx.getBean(cls);
     }
 
@@ -86,7 +86,7 @@ public class SpringContextUtil implements ApplicationContextAware {
      * @return String
      * @author chenjun
      */
-    public static String getEnvironmentProperty(String key, String defaultValue) {
+    public static @NotNull String getEnvironmentProperty(String key, String defaultValue) {
         return ctx.getEnvironment().getProperty(key, defaultValue);
     }
 
