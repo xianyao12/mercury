@@ -22,12 +22,6 @@ import org.springframework.stereotype.Component;
 public class MethodTimeAspect {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public static void main(String[] args) {
-        Integer a = 199;
-        int b = 199;
-        System.out.println(a == b);
-    }
-
     @Pointcut("execution(* *..service..*(..))")
     public void point() {
     }
