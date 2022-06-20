@@ -1,12 +1,12 @@
 package com.galaxy.mercury.utils;
 
 import org.jetbrains.annotations.Nullable;
-import sun.misc.BASE64Encoder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Base64;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -84,8 +84,8 @@ public class Base64Util {
      * @date 2022/6/15 12:20
      */
     public static String encode(byte[] image) {
-        BASE64Encoder decoder = new BASE64Encoder();
-        return replaceEnter(decoder.encode(image));
+        Base64.Encoder encoder = Base64.getEncoder();
+        return replaceEnter(encoder.encodeToString(image));
     }
 
     /**

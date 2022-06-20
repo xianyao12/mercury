@@ -10,11 +10,38 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com</groupId>
-    <artifactId>mercury</artifactId>
-    <version>2.0.1</version>
+    <!-- gav信息 -->
+    <groupId>io.github.xianyao12</groupId>
+    <artifactId>mercury-util</artifactId>
+    <!-- 需要特别注意,你上传的是SNAPSHOT仓库,所以此处版本号后缀必须带SNAPSHOT -->
+    <version>1.0.0-SNAPSHOT</version>
+
+    <!-- 项目信息 -->
     <name>mercury</name>
-    <description>mercury</description>
+    <description>my usual method</description>
+    <url>https://gitee.com/xian_y/mercury.git</url>
+
+    <!-- 开源协议 -->
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <!-- 开发者信息 -->
+    <developers>
+        <developer>
+            <id>xy</id>
+            <name>XianYao</name>
+            <email>68729611@qq.com</email>
+            <roles>
+                <role>software developer</role>
+                <role>Architect</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
 
     <properties>
         <java.version>1.8</java.version>
@@ -26,9 +53,9 @@
         <!-- 分页插件 -->
         <pageHelper.version>1.4.2</pageHelper.version>
         <!-- fastjson2 -->
-        <fastjson2.version>2.0.6</fastjson2.version>
+        <fastjson2.version>2.0.7</fastjson2.version>
         <!-- hutool 工具包 -->
-        <hutool.version>5.8.2</hutool.version>
+        <hutool.version>5.8.3</hutool.version>
         <!-- 从 request 获取设备信息 -->
         <UserAgentUtils.version>1.21</UserAgentUtils.version>
     </properties>
@@ -159,5 +186,112 @@
             </plugin>
         </plugins>
     </build>
+
+    <!-- 项目在github或其它托管平台的地址 -->
+    <scm>
+        <connection>https://gitee.com/xian_y/mercury.git</connection>
+        <developerConnection>scm:git:ssh://git@gitee.com:xian_y/mercury.git</developerConnection>
+        <url>https://gitee.com/xian_y/mercury</url>
+    </scm>
+
+    <profiles>
+        <profile>
+            <!-- 此 id 必须与 setting.xml 中指定的一致 -->
+            <id>ossrh</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <!-- 发布到中央 SNAPSHOT 仓库插件 -->
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.7</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+
+                    <!-- 生成源码插件 -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- 生成API文档插件 -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.3</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <additionalparam>-Xdoclint:none</additionalparam>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- gpg插件 -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+            <!-- 部署到 nexus 服务器-->
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>ossrh</id>
+                    <name>New Nexus Repository Releases SnapshotRepository</name>
+                    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+                <repository>
+                    <id>ossrh</id>
+                    <name>New Nexus Repository Releases Repository</name>
+                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+
+        <!--禁⽤注释检查-->
+        <profile>
+            <id>disable-javadoc-doclint</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <properties>
+                <javadoc.opts>-Xdoclint:none</javadoc.opts>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

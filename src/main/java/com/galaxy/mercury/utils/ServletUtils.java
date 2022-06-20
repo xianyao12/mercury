@@ -24,6 +24,11 @@ import java.net.UnknownHostException;
 public class ServletUtils {
     /**
      * 获取String参数
+     *
+     * @param name: 名字
+     * @return java.lang.String
+     * @author XianYao
+     * @date 2022/6/20 12:46
      */
     public static String getParameter(String name) {
         return getRequest().getParameter(name);
