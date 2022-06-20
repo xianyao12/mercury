@@ -1,9 +1,7 @@
 package com.galaxy.mercury.utils;
 
 import cn.hutool.core.convert.Convert;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -22,62 +20,25 @@ import java.net.UnknownHostException;
  * @date 2021/12/22 20:51
  */
 public class ServletUtils {
-    /**
-     * 获取String参数
-     *
-     * @param name: 名字
-     * @return java.lang.String
-     * @author XianYao
-     * @date 2022/6/20 12:46
-     */
-    public static String getParameter(String name) {
-        return getRequest().getParameter(name);
-    }
-
-    /**
-     * 获取String参数
-     */
-    public static String getParameter(String name, String defaultValue) {
-        return Convert.toStr(getRequest().getParameter(name), defaultValue);
-    }
-
-    /**
-     * 获取Integer参数
-     */
-    public static Integer getParameterToInt(String name) {
-        return Convert.toInt(getRequest().getParameter(name));
-    }
-
-    /**
-     * 获取Integer参数
-     */
-    public static Integer getParameterToInt(String name, Integer defaultValue) {
-        return Convert.toInt(getRequest().getParameter(name), defaultValue);
-    }
-
-    /**
-     * 获取Boolean参数
-     */
-    public static Boolean getParameterToBool(String name) {
-        return Convert.toBool(getRequest().getParameter(name));
-    }
-
-    /**
-     * 获取Boolean参数
-     */
-    public static Boolean getParameterToBool(String name, Boolean defaultValue) {
-        return Convert.toBool(getRequest().getParameter(name), defaultValue);
-    }
 
     /**
      * 获取request
+     *
+     * @return HttpServletRequest
+     * @author XianYao
+     * @date 2022/6/20 18:56
      */
     public static @NotNull HttpServletRequest getRequest() {
+
         return getRequestAttributes().getRequest();
     }
 
     /**
      * 获取response
+     *
+     * @return HttpServletResponse
+     * @author XianYao
+     * @date 2022/6/20 18:57
      */
     public static HttpServletResponse getResponse() {
         return getRequestAttributes().getResponse();
@@ -85,15 +46,21 @@ public class ServletUtils {
 
     /**
      * 获取session
+     *
+     * @return HttpSession
+     * @author XianYao
+     * @date 2022/6/20 18:57
      */
     public static HttpSession getSession() {
         return getRequest().getSession();
     }
 
     /**
-     * Describe: Request 客户端地址
+     * 获取客户端IP地址
      *
-     * @return {@link String}
+     * @return 客户端IP地址
+     * @author XianYao
+     * @date 2022/6/20 18:57
      */
     public static String getIpAddress() {
         HttpServletRequest request = getRequest();
@@ -123,16 +90,24 @@ public class ServletUtils {
         return ipAddress;
     }
 
+    /**
+     * 获取请求属性
+     *
+     * @return ServletRequestAttributes
+     * @author XianYao
+     * @date 2022/6/20 18:58
+     */
     public static ServletRequestAttributes getRequestAttributes() {
-        RequestAttributes attributes = RequestContextHolder.getRequestAttributes();
-        return (ServletRequestAttributes) attributes;
+        return (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
     }
 
     /**
      * 将字符串渲染到客户端
      *
-     * @param response 渲染对象
-     * @param string   待渲染的字符串
+     * @param response: 渲染对象
+     * @param string:   待渲染的字符串
+     * @author XianYao
+     * @date 2022/6/20 18:59
      */
     public static void renderString(@NotNull HttpServletResponse response, String string) {
         try {
@@ -148,24 +123,24 @@ public class ServletUtils {
     /**
      * 是否是Ajax异步请求
      *
-     * @param request 请求
+     * @param request: 请求体
+     * @return boolean
+     * @author XianYao
+     * @date 2022/6/20 18:59
      */
     public static boolean isAjaxRequest(@NotNull HttpServletRequest request) {
         String accept = request.getHeader("accept");
         if (accept != null && accept.contains("application/json")) {
             return true;
         }
-
         String xRequestedWith = request.getHeader("X-Requested-With");
         if (xRequestedWith != null && xRequestedWith.contains("XMLHttpRequest")) {
             return true;
         }
-
         String uri = request.getRequestURI();
         if (inStringIgnoreCase(uri, ".json", ".xml")) {
             return true;
         }
-
         String ajax = request.getParameter("__ajax");
         return inStringIgnoreCase(ajax, "json", "xml");
     }
@@ -173,14 +148,16 @@ public class ServletUtils {
     /**
      * 是否包含字符串
      *
-     * @param str  验证字符串
-     * @param strs 字符串组
-     * @return 包含返回true
+     * @param str:  验证字符串
+     * @param strs: 字符串组
+     * @return boolean
+     * @author XianYao
+     * @date 2022/6/20 19:00
      */
     public static boolean inStringIgnoreCase(String str, String... strs) {
         if (str != null && strs != null) {
             for (String s : strs) {
-                if (str.equalsIgnoreCase(trim(s))) {
+                if (str.equalsIgnoreCase(CommonTool.removeSpaces(s))) {
                     return true;
                 }
             }
@@ -189,10 +166,78 @@ public class ServletUtils {
     }
 
     /**
-     * 去空格
+     * 获取String参数
+     *
+     * @param name: 名字
+     * @return java.lang.String
+     * @author XianYao
+     * @date 2022/6/20 12:46
      */
-    @Contract(pure = true)
-    public static @NotNull String trim(String str) {
-        return (str == null ? "" : str.trim());
+    public static String getParameter(String name) {
+        return getRequest().getParameter(name);
     }
+
+    /**
+     * 获取String参数
+     *
+     * @param name:         参数名
+     * @param defaultValue: 默认值
+     * @return java.lang.String
+     * @author XianYao
+     * @date 2022/6/20 19:03
+     */
+    public static String getParameter(String name, String defaultValue) {
+        return Convert.toStr(getRequest().getParameter(name), defaultValue);
+    }
+
+    /**
+     * 获取Integer参数
+     *
+     * @param name: 参数名
+     * @return java.lang.Integer
+     * @author XianYao
+     * @date 2022/6/20 19:04
+     */
+    public static Integer getParameterToInt(String name) {
+        return Convert.toInt(getRequest().getParameter(name));
+    }
+
+    /**
+     * 获取Integer参数
+     *
+     * @param name:         参数名
+     * @param defaultValue: 默认值
+     * @return java.lang.Integer
+     * @author XianYao
+     * @date 2022/6/20 19:05
+     */
+    public static Integer getParameterToInt(String name, Integer defaultValue) {
+        return Convert.toInt(getRequest().getParameter(name), defaultValue);
+    }
+
+    /**
+     * 获取Boolean参数
+     *
+     * @param name: 参数名
+     * @return java.lang.Boolean
+     * @author XianYao
+     * @date 2022/6/20 19:05
+     */
+    public static Boolean getParameterToBool(String name) {
+        return Convert.toBool(getRequest().getParameter(name));
+    }
+
+    /**
+     * 获取Boolean参数
+     *
+     * @param name:         参数名
+     * @param defaultValue: 默认值
+     * @return java.lang.Boolean
+     * @author XianYao
+     * @date 2022/6/20 19:05
+     */
+    public static Boolean getParameterToBool(String name, Boolean defaultValue) {
+        return Convert.toBool(getRequest().getParameter(name), defaultValue);
+    }
+
 }

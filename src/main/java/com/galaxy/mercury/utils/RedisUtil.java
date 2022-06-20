@@ -46,7 +46,7 @@ public class RedisUtil implements ApplicationContextAware {
     private static final Logger log = LoggerFactory.getLogger(RedisUtil.class);
 
     /**
-     * 使用StringRedisTemplate(, 其是RedisTemplate的定制化升级)
+     * 使用StringRedisTemplate(其是RedisTemplate的定制化升级)
      */
     private static StringRedisTemplate redisTemplate;
 
@@ -58,9 +58,11 @@ public class RedisUtil implements ApplicationContextAware {
     /**
      * key相关操作
      *
-     * @date 2022/6/15 16:38
+     * @author XianYao
+     * @date 2022/6/10 19:12
      */
     public static class KeyOps {
+
 
         /**
          * 删除某个key下所有值

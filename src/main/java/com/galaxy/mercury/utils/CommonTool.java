@@ -1,5 +1,6 @@
 package com.galaxy.mercury.utils;
 
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.regex.Matcher;
@@ -52,5 +53,18 @@ public class CommonTool {
         }
         matcher.appendTail(stringBuffer);
         return stringBuffer.toString();
+    }
+
+    /**
+     * 去空格
+     *
+     * @param str: 字符串
+     * @return 去除空格后的字符串
+     * @author XianYao
+     * @date 2022/6/20 19:01
+     */
+    @Contract(pure = true)
+    public static @NotNull String removeSpaces(String str) {
+        return (str == null ? "" : str.trim());
     }
 }
